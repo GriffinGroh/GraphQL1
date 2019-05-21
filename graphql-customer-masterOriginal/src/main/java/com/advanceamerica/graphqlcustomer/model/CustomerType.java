@@ -437,6 +437,21 @@ public class CustomerType {
 	public void setContacts(ContactCollectionType contacts) {
 		this.contacts = contacts;
 	} 
-    
-   
+	//Griffin's code: added a field to hold incomes as well as a getter and setter method
+    public IncomeCollectionType incomes;
+	
+	/**
+	 * @return the income
+	 */
+	public IncomeCollectionType getIncome() {
+		return incomes;
+	}
+	
+	/**
+	 * @param incomes the incomes to set
+	 */
+	public void setIncome(IncomeCollectionType incomes) {
+		this.incomes = incomes;
+	}
+
 }
