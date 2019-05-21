@@ -26,4 +26,12 @@ public interface AdvanceAmericaRestServer {
     @Headers("Content-Type: application/json")
     @Body("%7B\"sourceCustomerId\": {source_customer_id}%7D")
     CustomerGetResponse getCustomerContact(@Param("source_customer_id") String source_customer_id);
+    
+     /*
+     * Griffin's code: uses the customerIncomeGet service2
+     */
+    @RequestLine("POST /CustomerIncomeGet/v1/rs/customerIncomeGetInfo")
+    @Headers("Content-Type: application/json")
+    @Body("%7B\"sourceCustomerId\": {source_customer_id}%7D")
+    CustomerGetResponse getCustomerIncome(@Param("source_customer_id") String source_customer_id);
 }
