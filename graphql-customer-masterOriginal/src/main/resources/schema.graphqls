@@ -1,0 +1,171 @@
+type CustomerType {
+  customerId: String
+	customerName: PersonType
+	customerStatusType: CustomerStatusTupleType
+	dob: String
+	state: StateTupleType
+	timeZone: TimeZoneTupleType
+	centerNumber: Int
+	omniCustomerId: Int
+	omniMasterRecordFlag: String
+	omniRecordLockFlag: String
+	firstCreated: String
+	lastUpdated: String
+	applicationDateTime: String
+	canShareDataCode: String
+	canShareDataDate: String
+	canMarketFlag: String
+	canMarketDate: String
+	canContactFlag: String
+	canContactDate: String
+	lastContactMethodCode: ContactMethodTupleType
+	lastContactDate: String
+	reviewNeededFlag: String
+	reviewLastDateTime: String
+	language: LanguageTupleType
+	ssnInfo: CustomerSsnInfoType
+	addresses: CustomerAddressCollectionType
+	contacts: ContactCollectionType
+}
+
+type PersonType {
+  title: String
+  firstName: String
+  middleName: String
+  middleInitial: String
+  lastName: String
+  lastName2: String
+  previousLastName: String
+  preferred: String
+  fullName: String
+}
+
+type LanguageTupleType {
+  code: String
+  description: String  
+}
+
+type ContactMethodTupleType {
+  code: String
+  description: String  
+}
+
+type TimeZoneTupleType {
+  code: String
+  description: String  
+}
+
+type StateTupleType {
+  code: String
+  description: String  
+}
+
+type CustomerStatusTupleType {
+  code: String
+  description: String  
+}
+
+type CustomerSsnInfoType {
+  ssnEncrypted: String
+  ssnHash: String
+  ssnLast4: String
+}
+
+type ContactType {
+  seqNumber: String
+  contactType: ContactTupleType
+  addr: String
+  contactNumber: String
+  macAddr: String
+  ipAddr: String
+  phoneCountry: CountryTupleType
+  phoneNumber10Digit: String
+  preferredFlag: String
+  activeFlag: String
+  activeDateTime: String
+  canContactFlag: String
+  canContactDateTime: String
+  canMarketFlag: String
+  allowAcctMaintenanceFlag: String
+  allowAcctMaintenanceDateTime: String
+  optInReferenceId: String
+}
+
+
+type CustomerAddressType {
+  addressType: AddressTupleType
+  addressLine1: String
+  addressLine2: String
+  city: String
+  state: StateTupleType
+  countryType: CountryTupleType
+  postalCode: String
+  postalCodePlusFour: String
+  geoCode: GeoCodeType
+  verifiedFlag: String
+  verifiedMethod: VerifiedMethodTupleType
+  verifiedDateTime: String
+  apartmentNumber: String
+  county: String
+  monthsAtAddress: String
+  canContactFlag: String
+  canContactDateTime: String
+  canContactMarketingFlag: String
+  canMarketDateTime: String
+  activeFlag: String
+  activeDateTime: String
+  seqNumber: String
+  dma: DmaTupleType
+}
+
+type DmaTupleType {
+  dmaCode: String
+  dmaDescription: String  
+}
+
+type AddressTupleType {
+  code: String
+  description: String  
+}
+
+type CountryTupleType {
+  code: String
+  description: String  
+}
+
+type ContactTupleType {
+  code: String
+  description: String  
+}
+
+type VerifiedMethodTupleType {
+  code: String
+  description: String  
+}
+
+type CustomerAddressCollectionType{
+	addresses: [CustomerAddressType]
+}
+
+type ContactCollectionType{
+	contacts: [ContactType]
+}
+
+type GeoCodeType {
+  dmaType: DmaTupleType
+  latitude: String
+  longitude: String
+  verifiedFlag: String
+  verifiedMethod: VerifiedMethodTupleType
+  verifiedDateTime: String
+}
+
+type Query {
+   
+    getCustomer(sourceCustomerId: String): CustomerType
+
+	getCustomerAddress(sourceCustomerId: String): CustomerAddressCollectionType
+	
+	getCustomerContact(sourceCustomerId: String): ContactCollectionType
+   
+}
